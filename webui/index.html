@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能快递站 - 数据展示</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>智能快递站数据管理系统</h1>
+        </header>
+        
+        <div class="search-section">
+            <input type="text" id="phoneSearch" placeholder="请输入手机尾号查询快递">
+            <button onclick="searchExpress()">查询</button>
+            <button onclick="addTestData()" class="test-btn">添加测试数据</button>
+        </div>
+
+        <div class="data-section">
+            <h2>快递信息</h2>
+            <div id="expressData" class="express-list">
+                <!-- 数据将通过JavaScript动态插入 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
