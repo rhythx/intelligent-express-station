@@ -3,27 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>智能快递站 - 数据展示</title>
+    <title>智能快递站管理系统</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="container">
         <header>
-            <h1>智能快递站数据管理系统</h1>
+            <h1>智能快递站管理系统</h1>
+            <div class="status-indicator">
+                <span>WebSocket状态: </span>
+                <span id="ws-status" class="disconnected">● 未连接</span>
+            </div>
         </header>
-        
-        <div class="search-section">
-            <input type="text" id="phoneSearch" placeholder="请输入手机尾号查询快递">
-            <button onclick="searchExpress()">查询</button>
-            <button onclick="addTestData()" class="test-btn">添加测试数据</button>
+
+        <!-- ... (添加入库和查询部分保持不变) ... -->
+        <div class="card form-card">
+            <h2>添加入库信息</h2>
+            <form id="add-form">
+                <div class="form-group">
+                    <label for="name">姓名:</label>
+                    <input type="text" id="name" name="name" placeholder="例如：张三" required>
+                </div>
+                <div class="form-group">
+                    <label for="express_number">快递单号:</label>
+                    <input type="text" id="express_number" name="express_number" placeholder="例如：SF123456789" required>
+                </div>
+                <div class="form-group">
+                    <label for="location_code">货架位置:</label>
+                    <input type="text" id="location_code" name="location_code" placeholder="例如：A01-01" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone_number">手机号:</label>
+                    <input type="tel" id="phone_number" name="phone_number" placeholder="完整的11位手机号" required>
+                </div>
+                <button type="submit" class="btn btn-primary">确认入库</button>
+            </form>
         </div>
 
-        <div class="data-section">
-            <h2>快递信息</h2>
-            <div id="expressData" class="express-list">
-                <!-- 数据将通过JavaScript动态插入 -->
+        <div class="card search-card">
+            <h2>查询快递信息</h2>
+            <div class="search-controls">
+                <input type="text" id="search-input" placeholder="输入手机尾号查询">
+                <button id="search-btn" class="btn">查询</button>
+                <button id="reset-btn" class="btn btn-secondary">显示全部</button>
             </div>
         </div>
+
+        <div class="card table-card">
+            <h2>当前库存列表</h2>
+            <!-- [修改] 添加了 class="data-table" -->
+            <table id="express-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>姓名</th>
+                        <th>快递单号</th>
+                        <th>货架位置</th>
+                        <th>手机号</th>
+                    </tr>
+                </thead>
+                <tbody id="express-table-body">
+                    <!-- 数据将由 JavaScript 动态填充 -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card table-card">
+            <h2>历史取件列表</h2>
+            <!-- [修改] 添加了 class="data-table" -->
+            <table id="history-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>姓名</th>
+                        <th>快递单号</th>
+                        <th>货架位置</th>
+                        <th>手机号</th>
+                        <th>取件时间</th>
+                    </tr>
+                </thead>
+                <tbody id="history-table-body">
+                    <!-- 历史数据将由 JavaScript 动态填充 -->
+                </tbody>
+            </table>
+        </div>
+
     </div>
 
     <script src="script.js"></script>
