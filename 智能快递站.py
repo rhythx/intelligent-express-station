@@ -17,7 +17,7 @@ from urllib.parse import urlparse, parse_qs # 用于解析URL请求
 from functools import partial    # 用于创建偏函数 (为HTTP处理器传递参数)
 from datetime import datetime
 
-##nihao
+##虽然但是你好世界
 
 # --- JSON数据格式说明 ---
 """
